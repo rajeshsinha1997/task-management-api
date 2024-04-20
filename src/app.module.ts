@@ -1,7 +1,11 @@
 import { Module } from '@nestjs/common';
+import { HealthModule } from './modules/health/health.module';
 
+/**
+ * root application module for the Nest.js application.
+ */
 @Module({
-  imports: [],
+  imports: [HealthModule],
   controllers: [],
   providers: [],
 })
