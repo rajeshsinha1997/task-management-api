@@ -1,11 +1,17 @@
-import { Module } from '@nestjs/common';
-import { HealthModule } from './modules/health/health.module';
+import { Module } from "@nestjs/common";
+import { ConfigModule } from "@nestjs/config";
+import { HealthModule } from "./modules/health/health.module";
+import { TaskModule } from "./modules/task/task.module";
 
 /**
- * root application module for the Nest.js application.
+ * root module for the application.
  */
 @Module({
-  imports: [HealthModule],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true, cache: true }),
+    HealthModule,
+    TaskModule,
+  ],
   controllers: [],
   providers: [],
 })
